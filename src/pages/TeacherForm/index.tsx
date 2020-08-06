@@ -1,10 +1,13 @@
 import React from 'react';
-import PageHeader from '../../components/PageHeader';
 
-import './styles.css';
+import PageHeader from '../../components/PageHeader';
 import Input from '../../components/input';
+import Textarea from '../../components/Textarea';
+import Select from '../../components/Select';
 
 import warningIcon from '../../assets/images/icons/warning.svg';
+
+import './styles.css';
 
 function TeacherForm() {
     return (
@@ -21,21 +24,56 @@ function TeacherForm() {
                     <Input name="name" label="Nome completo" />
                     <Input name="avatar" label="Avatar" />
                     <Input name="whatsapp" label="Whatsapp" />
+                    <Textarea name="bio" label="Biografia" />
                 </fieldset>
 
                 <fieldset>
                     <legend>Sobre a aula</legend>
 
-                    <Input name="subject" label="Matéria" />
+                    <Select
+                        name="subject"
+                        label="Matéria"
+                        options={[
+                            { value: 'Artes', label: 'Artes' },
+                            { value: 'Biologia', label: 'Biologia' },
+                            { value: 'Matemática', label: 'Matemática' },
+                            { value: 'Coquetelaria', label: 'Coquetelaria' },
+                            { value: 'Física', label: 'Física' },
+                            { value: 'Master', label: 'Master' },
+                        ]}
+                    />
                     <Input name="cost" label="Custo da sua Hora por aula" />
                 </fieldset>
 
                 <fieldset>
-                    <legend>Horários disponíveis</legend>
+                    <legend>
+                        Horários disponíveis
+                        <button type="button">
+                            + Novo horário
+                        </button>
+                    </legend>
 
-                    <Input name="name" label="Nome completo" />
-                    <Input name="avatar" label="Avatar" />
-                    <Input name="whatsapp" label="Whatsapp" />
+                    <div className="schedule-item">
+                        <Select
+                            name="week_day"
+                            label="Dia da Semana"
+                            options={[
+                                { value: '0', label: 'Domingo' },
+                                { value: '1', label: 'Segunda-feira' },
+                                { value: '2', label: 'Terça-feira' },
+                                { value: '3', label: 'Quarta-feira' },
+                                { value: '4', label: 'Quinta-feira' },
+                                { value: '5', label: 'Sexta-feira' },
+                                { value: '6', label: 'Sábado' },
+                            ]}
+                        />
+
+                        <Input type="time" name="from" label="Das" />
+                        <Input type="time" name="to" label="Até" />
+
+
+                    </div>
+
                 </fieldset>
 
                 <footer>
