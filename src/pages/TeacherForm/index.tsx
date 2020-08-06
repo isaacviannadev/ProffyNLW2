@@ -2,6 +2,9 @@ import React from 'react';
 import PageHeader from '../../components/PageHeader';
 
 import './styles.css';
+import Input from '../../components/input';
+
+import warningIcon from '../../assets/images/icons/warning.svg';
 
 function TeacherForm() {
     return (
@@ -15,19 +18,34 @@ function TeacherForm() {
                 <fieldset>
                     <legend>Seus dados</legend>
 
-                    <div className="input-block">
-                        <label htmlFor="name">Nome completo</label>
-                        <input type="text" id="name" />
-                    </div>
-                    <div className="input-block">
-                        <label htmlFor="avatar">Avatar</label>
-                        <input type="text" id="avatar" />
-                    </div>
-                    <div className="input-block">
-                        <label htmlFor="whatsapp">Whatsapp</label>
-                        <input type="text" id="whatsapp" />
-                    </div>
+                    <Input name="name" label="Nome completo" />
+                    <Input name="avatar" label="Avatar" />
+                    <Input name="whatsapp" label="Whatsapp" />
                 </fieldset>
+
+                <fieldset>
+                    <legend>Sobre a aula</legend>
+
+                    <Input name="subject" label="Matéria" />
+                    <Input name="cost" label="Custo da sua Hora por aula" />
+                </fieldset>
+
+                <fieldset>
+                    <legend>Horários disponíveis</legend>
+
+                    <Input name="name" label="Nome completo" />
+                    <Input name="avatar" label="Avatar" />
+                    <Input name="whatsapp" label="Whatsapp" />
+                </fieldset>
+
+                <footer>
+                    <p>
+                        <img src={warningIcon} alt="aviso Importante" />
+                        Importante! <br />
+                        Preencha todos os dados
+                    </p>
+                    <button type="button">Salvar cadastro</button>
+                </footer>
             </main>
         </div>
     )
